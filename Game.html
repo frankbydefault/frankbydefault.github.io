@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chess AI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta
+          name="description"           
+          content="A simple chess AI.">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" 
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+            crossorigin="anonymous">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/chess.css">
+        <link rel="stylesheet" href="css/styles.css">
+
+        <!-- Google Icons (Material Design) -->
+        <link rel="stylesheet" 
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            crossorigin="anonymous">
+
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/5b14db5f0b.js" crossorigin="anonymous"></script>
+
+        <!-- jQuery --> 
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous">
+        </script>
+
+        <!-- Chessboard JS -->
+        <link rel="stylesheet"
+            href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css"
+            integrity="sha384-q94+BZtLrkL1/ohfjR8c6L+A6qzNH9R2hBLwyoAfu3i/WCvQjzL2RQJ3uNHDISdU"
+            crossorigin="anonymous">
+        <script defer src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
+            integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
+            crossorigin="anonymous"></script>
+
+        <!-- Chess JS (slightly modified) -->
+        <script defer src="code/chess-engine.js"></script>
+        </script>
+
+        <!-- Bootstrap JS --> 
+        <script defer
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" 
+            integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" 
+            crossorigin="anonymous">
+        </script>
+
+        <!-- Custom JS -->
+        <script defer src="code/board.js"></script>
+
+        <!--JQuery Confirm-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+        
+    </head>
+    <body>
+        <header>
+            <img class="logo" src="./img/logo-dark.svg">
+            <nav>
+                <ul class="navlinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Game.html">Game</a></li>
+                    <li><a href="Tutorial.html">Tutorial</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <div class="page-margin">
+                <div>
+                    <div>
+                        <!--<h1 id="GameTitle" class="hero">Simple Chess AI</h1> -->
+                        <div class="row justify-content-center" id="accordion">
+
+                            <div class="col-sm-auto">
+                                <div id="settingsHeading">
+                                    <button data-toggle="collapse" data-target="#settings" aria-expanded="true" aria-controls="settings">
+                                        Algorithm Settings
+                                    </button>
+                                </div>
+
+                                <div id="settings" class="collapse" aria-labelledby="settingsHeading" data-parent="#accordion">
+                                    <div>
+                                        
+                                            <div class="form-group">
+                                                <label for="search-depth">Search Depth (Black)</label>
+                                                <select id="search-depth">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3" selected>3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+                                    
+                                            <div class="form-group">
+                                                <label for="search-depth-white">Search Depth (White)</label>
+                                                <select id="search-depth-white">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3" selected>3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+                                        
+                                            <div class="form-group">
+                                                <label for="showHint">Suggest Moves (White)</label>
+                                                <input type="checkbox" id="showHint" name="showHint" value="showHint">
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>    
+                                
+
+                            <div class="col-sm-auto text-align-center">
+                                <div  id="openingPositionsHeading">
+                                    <button data-toggle="collapse" data-target="#openingPositions" aria-expanded="true" aria-controls="openingPositions">
+                                        Opening Positions
+                                    </button>
+                                </div>
+                            
+                                <div id="openingPositions" class="col collapse " aria-labelledby="openingPositionsHeading" data-parent="#accordion">
+
+                                    <div class="row-auto m-2">
+                                            <a id="ruyLopezBtn">Ruy Lopez</a>
+                                    </div>
+
+                                    <div class="row-auto m-2">
+                                        <a id="italianGameBtn">Italian Game</a>
+                                    </div>
+
+                                    <div class="row-auto m-2">
+                                        <a id="sicilianDefenseBtn">Sicilian Defense</a>
+                                    </div>
+ 
+                                    <div class="row-auto m-2">
+                                        <a id="startBtn">Start Position</a>
+                                    </div> 
+                                    
+                                </div>
+                            </div>
+                                
+                            <div class="col-sm-auto">
+                                <div  id="compVsCompHeading">
+                                    
+                                    <button data-toggle="collapse" data-target="#compVsComp" aria-expanded="true" aria-controls="compVsComp">
+                                        Game Options
+                                    </button>
+                                    
+                                </div>
+                        
+                                <div id="compVsComp" class="collapse" aria-labelledby="compVsCompHeading" data-parent="#accordion">
+                                    <div>
+                                        <div class="column">
+                                            <div class="row-md-6 my-2">
+                                                <button class="button-config" id="compVsCompBtn"> AI vs AI</button>
+                                            </div>
+                                            <div class="row-md-6 my-2">
+                                                <button class="button-config" id="resetBtn">Stop and Reset Game</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>  
+                        <!-- 
+                        <div class="row my-3 text-align-center">
+                            <div class="col-md-12 mt-5">
+                                <h3>Advantage</h3>
+                                <div class="row justify-content-between">
+                                    <p>White Advantage</p>
+                                    <p>Black Advantage</p>   
+                                </div>
+                                
+                                <div class="progress">
+                                    <div class="progress-bar bg-info progress-bar progress-bar-animated" 
+                                        role="progressbar" aria-valuenow="0" style="width: 50%"
+                                        aria-valuemin="-2000" aria-valuemax="4000" id='advantageBar'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="row my-3 text-align-center">
+                            <div class="col-md-12">
+                                <h2>Status</h2>
+                                <p><span id="status">No check, checkmate, or draw.</span></p>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="row mt-5 justify-content-center">
+                        <div class="col-auto">
+                            <div class="row-auto">
+                                <button class="undobtn" id="undoBtn">Undo</button>
+                            </div>
+                            <div class="row-auto">
+                                <button class="redobtn" id="redoBtn">Redo</button>
+                            </div>
+                        </div>
+                        <div class="col-auto" style="width: 600px;">
+                            <div id="myBoard" ></div>   
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p class="text-align-center mt-5"> Copyright &copy 2022 
+                <a href="https://github.com/frankbydefault/ChessGame">Franco Hauva</a> 
+            </p>
+        </footer>
+    </body>
+</html>
