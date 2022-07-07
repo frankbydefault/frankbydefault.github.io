@@ -310,7 +310,7 @@ function checkStatus(color) {
   if (game.in_checkmate()) {
     $.alert({
       title: 'Checkmate',
-      content: `${color} lost the game :(`,
+      content: `${color} won the game :)`,
     });
   } else if (game.insufficient_material()) {
     $.alert({
@@ -333,10 +333,10 @@ function checkStatus(color) {
       content: '50-move rule',
     });
   } else if (game.in_check()) {
-    $.alert({
+    /*$.alert({
       title: 'Check',
       content: `${color} is in check`,
-    });
+    });*/
     return false;
   } else {
     return false;

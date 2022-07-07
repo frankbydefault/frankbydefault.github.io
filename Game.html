@@ -90,7 +90,7 @@
                                     <div>
                                         
                                             <div class="form-group">
-                                                <label for="search-depth">Search Depth (Black)</label>
+                                                <label for="search-depth" title="This can make the response time slower. The higher the number the harder it is.">Search Depth (Black)</label>
                                                 <select id="search-depth">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -101,7 +101,7 @@
                                             </div>
                                     
                                             <div class="form-group">
-                                                <label for="search-depth-white">Search Depth (White)</label>
+                                                <label for="search-depth-white" title="Only modify if you are going to use the AI vs AI game mode.">Search Depth (White)</label>
                                                 <select id="search-depth-white">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
@@ -112,7 +112,7 @@
                                             </div>
                                         
                                             <div class="form-group">
-                                                <label for="showHint">Suggest Moves (White)</label>
+                                                <label for="showHint" title="Helps you win the game.">Suggest Moves (White)</label>
                                                 <input type="checkbox" id="showHint" name="showHint" value="showHint">
                                             </div>
                                     </div>
@@ -127,21 +127,21 @@
                                     </button>
                                 </div>
                             
-                                <div id="openingPositions" class="col collapse " aria-labelledby="openingPositionsHeading" data-parent="#accordion">
+                                <div id="openingPositions" class="col collapse" aria-labelledby="openingPositionsHeading" data-parent="#accordion">
 
-                                    <div class="row-auto m-2">
+                                    <div class="row-auto m-2 openings">
                                             <a id="ruyLopezBtn">Ruy Lopez</a>
                                     </div>
 
-                                    <div class="row-auto m-2">
+                                    <div class="row-auto m-2 openings">
                                         <a id="italianGameBtn">Italian Game</a>
                                     </div>
 
-                                    <div class="row-auto m-2">
+                                    <div class="row-auto m-2 openings">
                                         <a id="sicilianDefenseBtn">Sicilian Defense</a>
                                     </div>
  
-                                    <div class="row-auto m-2">
+                                    <div class="row-auto m-2 openings">
                                         <a id="startBtn">Start Position</a>
                                     </div> 
                                     
@@ -214,7 +214,7 @@
             </div>
         </main>
         <footer>
-            <p class="text-align-center mt-5"> Copyright &copy 2022 
+            <p> Copyright &copy 2022 
                 <a href="https://github.com/frankbydefault/ChessGame">Franco Hauva</a> 
             </p>
         </footer>

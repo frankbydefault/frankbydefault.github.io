@@ -88,7 +88,7 @@ header{
 .hero{
     display: flex;
     justify-content: center;
-    margin-top: 52px;
+    margin-top: 2%;
     align-items: center;
 
 }
@@ -107,7 +107,7 @@ header{
 .info{
     display: flex;
     justify-content: center;
-    margin-top: 52px;
+    margin-top: 3%;
     text-align: center;
 }
 
@@ -127,7 +127,7 @@ header{
 footer{
     position: fixed;
     left: 0;
-    bottom: 20px;
+    bottom: 3%;
     width: 100%;
     text-align: center;
 }
